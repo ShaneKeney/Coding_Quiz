@@ -9,6 +9,9 @@
     <!-- Bootstrap style link-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!-- Custom or override css -->
     <link rel="stylesheet" href="./css/font-imports.css" />
     <link rel="stylesheet" href="./css/main-page.css" />
@@ -46,14 +49,16 @@
                     </p>
                 </div>
 
-                <div class="button-container d-flex justify-content-center pt-3 px-3">
-                    <button type="button" class="btn btn-lg rounded-pill generate-bttn" id="generate-password">Start Quiz</button>
+                <div class="button-container d-flex justify-content-center pt-3 px-3" id="button-container">
+                    <button type="button" class="btn btn-lg rounded-pill generate-bttn" id="start-quiz">Start Quiz</button>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script src="./scripts/questions.js"></script>
+    <script src="./scripts/main.js"></script>
 
-    <script src="./script.js"></script>
 
     <!-- Bootstrap.js here -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
