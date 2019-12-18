@@ -17,6 +17,11 @@
     color: black;
 }
 
+.quiz-description {
+    font-family: 'Montserrat-Bold';
+    color: black;
+}
+
 .test {
     background-color: red;
 }
