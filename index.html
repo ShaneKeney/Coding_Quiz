@@ -38,20 +38,24 @@
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-12  d-flex position-relative flex-column rounded-lg pb-5 px-5 content-container shadow">
-                <h1 class="align-items-center text-center header-font mt-5 mb-0">Coding Quiz Challenge</h1>
+            <div class="col-md-12  d-flex position-relative flex-column rounded-lg pb-5 px-5 content-container shadow" id="content-container">
 
-                <div class="my-2 d-flex flex-column position-relative rounded-lg px-2">
-                    <p class="mt-4 quiz-description text-center text-break">
-                        Try to answer the following code-related questions within the time
-                        limit.  Keep in mind that incorrect answers will penalize your score/time
-                        by ten seconds!
-                    </p>
+                <div class="d-flex flex-grow-1 flex-column" id="startQuizDialog">
+                    <h1 class="align-items-center text-center header-font mt-5 mb-0">Coding Quiz Challenge</h1>
+
+                    <div class="my-2 d-flex flex-column position-relative rounded-lg px-2">
+                        <p class="mt-4 quiz-description text-center text-break">
+                            Try to answer the following code-related questions within the time
+                            limit.  Keep in mind that incorrect answers will penalize your score/time
+                            by ten seconds!
+                        </p>
+                    </div>
+
+                    <div class="button-container d-flex justify-content-center pt-3 px-3" id="button-container">
+                        <button type="button" class="btn btn-lg rounded-pill generate-bttn" id="start-quiz">Start Quiz</button>
+                    </div>
                 </div>
 
-                <div class="button-container d-flex justify-content-center pt-3 px-3" id="button-container">
-                    <button type="button" class="btn btn-lg rounded-pill generate-bttn" id="start-quiz">Start Quiz</button>
-                </div>
             </div>
         </div>
     </div>

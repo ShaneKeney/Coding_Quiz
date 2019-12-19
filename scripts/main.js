@@ -1,4 +1,4 @@
-
+var startQuizEl = $("#startQuizDialog");
 
 var TIMER_CONSTANT = 75;
 
@@ -16,10 +16,11 @@ function startTimer() {
         }
         if(counter === 0) {
             clearInterval(counter);
+            $("#content-container").append(startQuizEl);
         }
-    }, 1000);
+    }, 5);
 }
 
 function startQuiz() {
-
+    $("#startQuizDialog").remove();
 }
