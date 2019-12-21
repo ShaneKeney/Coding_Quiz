@@ -40,7 +40,7 @@
         <div class="row">
             <div class="col-md-12  d-flex position-relative flex-column rounded-lg pb-5 px-5 content-container shadow">
 
-                <div class="d-flex flex-grow-1 flex-column" id="startQuizDialog">
+                <div class="d-flex flex-grow-1 flex-column">
                     <h1 class="align-items-center text-center header-font mt-5 mb-0">Coding Quiz Challenge</h1>
 
                     <div class="my-2 d-flex flex-column position-relative rounded-lg px-2">
@@ -64,21 +64,51 @@
         <div class="row">
             <div class="col-md-12  d-flex position-relative flex-column rounded-lg pb-5 px-5 content-container shadow">
 
-                <div class="d-flex flex-grow-1 flex-column position-relative" id="startQuizDialog">
-                    <h1 class="align-items-center question-font mt-5 mb-0">This will be the question to be answered, let me write some extra text to see it wrap</h1>
+                <div class="d-flex flex-grow-1 flex-column position-relative">
+                    <h1 class="align-items-center question-font mt-5 mb-0" id="question-header">This will be the question to be answered, let me write some extra text to see it wrap</h1>
     
-                    <div class="my-3 d-inline-flex flex-column position-relative">
-                        <button type="button" class="d-inline-flex btn btn-lg rounded-pill generate-bttn choiceBttn w-auto">Choice #1</button>
-                        <button type="button" class="d-inline-flex btn btn-lg rounded-pill generate-bttn choiceBttn ">Choice #2</button>
-                        <button type="button" class="d-inline-flex btn btn-lg rounded-pill generate-bttn choiceBttn">Choice #3</button>
-                        <button type="button" class="d-inline-flex btn btn-lg rounded-pill generate-bttn choiceBttn">Choice #4</button>
-                    </div>
-    
-                    <div class=" d-flex justify-content-start pt-3" id="answerStatusContainer">
-                        <p id="answerStatus">This will be CORRECT! or INCORRECT!</p>
+                    <div class="my-3 d-inline-flex flex-column position-relative" id="button-container">
+                        <button type="button" class="d-inline-flex btn btn-lg rounded-pill generate-bttn choiceBttn" id="buttonA">Choice #1</button>
+                        <button type="button" class="d-inline-flex btn btn-lg rounded-pill generate-bttn choiceBttn " id="buttonB">Choice #2</button>
+                        <button type="button" class="d-inline-flex btn btn-lg rounded-pill generate-bttn choiceBttn" id="buttonC">Choice #3</button>
+                        <button type="button" class="d-inline-flex btn btn-lg rounded-pill generate-bttn choiceBttn" id="buttonD">Choice #4</button>
                     </div>
                 </div>
     
+                <div class="justify-content-start pt-3" id="answerStatusContainer">
+                    <p id="answerStatus">This will be CORRECT! or INCORRECT!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" id="inputUserPrompt">
+        <div class="row">
+            <div class="col-md-12  d-flex position-relative flex-column rounded-lg pb-5 px-5 content-container shadow">
+
+                <div class="d-flex flex-grow-1 flex-column position-relative">
+                    <h1 class="align-items-center question-font mt-5 mb-0" id="question-header">All done!</h1>
+    
+                    <div class="my-2 d-flex flex-column position-relative rounded-lg">
+                        <p class="mt-4 quiz-description text-break">
+                            Your final score is 
+                        </p>
+                    </div>
+
+                    <form class="d-flex flex-row mb-3">
+                        <div class="d-flex form-group col-10 mx-0 pl-0">
+                          <label for="inputInitials" class="d-flex col-3 mr-0 flex-row pl-0 mb-0 text-center align-self-center">Enter initials</label>
+                          <input type="text" class="form-control col-9 mr-3 align-self-center" id="inputInitials">
+                          <div class="d-flex align-self-stretch justify-content-end p-0">
+                            <button type="submit" class="align-self-center p-2" id="submitInitials">Submit</button>
+                          </div>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="justify-content-start pt-3" id="answerStatusContainer">
+                    <p id="answerStatus">This will be CORRECT! or INCORRECT!</p>
+                </div>
             </div>
         </div>
     </div>

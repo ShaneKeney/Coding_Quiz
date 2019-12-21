@@ -61,3 +61,13 @@
     margin-bottom: 10px;
     font-size: 1.0em;
 }
+
+#submitInitials {
+    background-color: purple;
+    color: white;
+    border-radius: .5em;
+}
+
+#submitInitials:hover {
+    color: yellow;
+}
