@@ -1,8 +1,10 @@
 var startQuizEl = $("#quizDialog-container");
 var questionTemplate = $("#quizCardContainer");
+var endPrompt = $("#inputUserPrompt");
 
 var TIMER_CONSTANT = questions.length * 15;
 var currentQuestionIndex = 0;
+var finalScore = "";
 
 $("docuemnt").ready(() => {
     $('#start-quiz').on("click", startTimer);
@@ -10,7 +12,12 @@ $("docuemnt").ready(() => {
 
     //remove temporarily unless start quiz is clicked
     $('#quizCardContainer').remove();
+    $("#inputUserPrompt").remove();
     questionTemplate.removeClass("d-none"); //removed d-none so when it is appended it will show up in the body
+
+    //bind change event to highscore submit for form validation
+    let submitHighScoreBttn = endPrompt.find("#highScoreSubmission");
+    submitHighScoreBttn.submit(submitHighScore);
 });
 
 function startTimer() {
@@ -23,13 +30,10 @@ function startTimer() {
         }
         if(TIMER_CONSTANT === 0) {
             clearInterval(TIMER_CONSTANT);
-            $("body").append(startQuizEl);
-
-            //Rebind listeners for restarting quiz
-            $("#start-quiz").on("click", startTimer);
-            $("#start-quiz").on("click", startQuiz);
+            endPrompt.find("#answerStatusContainer").addClass("d-none");
+            showEndPrompt();
         }
-    }, 1000);
+    }, 10);
 }
 
 function showAnswerStatus() {
@@ -37,7 +41,6 @@ function showAnswerStatus() {
 
     //displayed in multipleChoiceClick event function
     //Hidden after timer expires
-
     setInterval(function() {
         count--;
         if(count ===0) {
@@ -47,30 +50,18 @@ function showAnswerStatus() {
     }, 1000)
 }
 
-function showNextQuestion(lastAnswerCorrect = undefined) {
+function showNextQuestion() {
     //first remove old instance in order to remove prev attached event listeners
     $('#quizCardContainer').remove();
 
     //if there is no next question than cleanup and break;
     if(currentQuestionIndex >= questions.length) {
-        $('#quizCardContainer').remove();
-
-        //TODO: render the ending prompt rather than another question
-
-
-        //Reset timer to original value
-        TIMER_CONSTANT = questions.length * 15;
-        currentQuestionIndex = 0;
-
+        endPrompt.find("#answerStatusContainer").removeClass("d-none");
+        showEndPrompt();
         return;
     }
 
     let newQuestion = createQuestionElement(currentQuestionIndex);
-
-    //show right or wrong
-    if(lastAnswerCorrect) {
-        newQuestion.find("#answerStatusContainer").remove("d-none"); 
-    }
 
     $("body").append(newQuestion);
 }
@@ -112,6 +103,13 @@ function multipleChoiceClick(event) {
     } else {
         $("#answerStatus").text("WRONG!")
         answerStatus = false;
+        TIMER_CONSTANT-=10;
+    }
+
+    finalScore = TIMER_CONSTANT;
+
+    if(currentQuestionIndex >= questions.length) {
+        answerStatus ? endPrompt.find("#answerStatus").text("CORRECT!") : endPrompt.find("#answerStatus").text("WRONG!");
     }
 
     showNextQuestion(answerStatus);
@@ -121,4 +119,39 @@ function startQuiz() {
     $("#quizDialog-container").remove();
 
     showNextQuestion();
+}
+
+function showEndPrompt() {
+    $('#quizCardContainer').remove();
+
+    //render the ending prompt rather than another question
+    endPrompt.removeClass("d-none");
+
+    if(finalScore === "") finalScore = "0";
+    endPrompt.find("#finalScoreText").text(`Your final score is ${finalScore}`)
+    $("body").append(endPrompt);
+
+    //Reset timer to original value
+    currentQuestionIndex = 0;
+    TIMER_CONSTANT = 0;
+    $("#timeIndicator").text("0");
+}
+
+function submitHighScore() {
+    //event.preventDefault(); //I want to submit form and navigate away
+
+    let highScoreInput = $("#inputInitials");
+    let highScoreInitials = highScoreInput.val().trim();
+
+    console.log(finalScore);
+
+    if(highScoreInitials) {
+        let currentUserScore = localStorage.getItem(highScoreInitials);
+
+        if(currentUserScore > finalScore) return;
+
+        localStorage.setItem(highScoreInitials, finalScore);
+    } else {
+        highScoreInput.attr("placeholder", "Please input initials...");
+    }
 }
