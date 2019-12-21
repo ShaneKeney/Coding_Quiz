@@ -5,8 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>High Scores</title>
+
+    <!-- Bootstrap style link-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Custom or override css -->
+    <link rel="stylesheet" href="./css/font-imports.css" />
+    <link rel="stylesheet" href="./css/main-page.css" />
+    <link rel="stylesheet" href="./css/high-scores.css" />
 </head>
 <body>
-    
+
+    <!-- Header -->
+    <div class="container-fluid header-background">
+        <div class="row">
+            <div class="container-fluid px-0">
+                <nav class="navbar navbar-light py-0 w-100">
+                    <div class="navbar-brand header-title">
+                        <a class="title px-0" href="./highscores.html">View Highscores</a> <!--Change href here to view highscore screen -->
+                    </div>
+
+                    <div class="flex-row d-flex justify-content-end mb-0">
+                        <p class="mb-0 mr-1" id="timeLabel">Time:</p>
+                        <p class="mb-0" id="timeIndicator">0</p>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" id="quizDialog-container">
+        <div class="row">
+            <div class="col-md-12  d-flex position-relative flex-column rounded-lg pb-5 px-5 content-container shadow">
+
+                <div class="d-flex flex-grow-1 flex-column">
+                    <h1 class="align-items-center text-center header-font mt-5 mb-0">Highscores</h1>
+
+                    <div class="my-2 d-flex flex-column position-relative rounded-lg px-2" id="highScoreContainer">
+                        <div class="d-flex pl-3 py-2 rounded-lg mt-2 test" id="highScoreElement">
+                            <p class="mb-0 " id="highScoreText">XXX - ##</p>
+                        </div>
+                    </div>
+
+                    <div class="button-container d-flex justify-content-around pt-3 px-3" id="button-container">
+                        <button type="button" class="btn btn-lg rounded-pill generate-bttn" id="goBack">Go Back</button>
+                        <button type="button" class="btn btn-lg rounded-pill generate-bttn" id="clearScores">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+
+    <script src="./scripts/highscores.js"></script>
+
+    <!-- Bootstrap.js here -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
