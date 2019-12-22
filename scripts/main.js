@@ -33,7 +33,7 @@ function startTimer() {
             endPrompt.find("#answerStatusContainer").addClass("d-none");
             showEndPrompt();
         }
-    }, 10);
+    }, 1000);
 }
 
 function showAnswerStatus() {
